@@ -35,9 +35,6 @@ export default {
       type:Boolean,
       required:false,
       default:false,
-      // validator:function(value){
-      //   return  value==='0' | value==='1';
-      // }
     }
 
   }

@@ -7,10 +7,12 @@
       <friend-contact
       v-for="friend in friends"
       :key="friend.id"
+      :id="friend.id"
       :name="friend.name"
       :email-address="friend.email"
       :phone-number="friend.phone"
       :isFavarite="friend.favarite"
+      @toggle-favarite="toggleFavriteFromChild"
       >
     </friend-contact>
     </ul>
@@ -39,6 +41,13 @@ export default {
       ],
     };
   },
+  methods:{
+    toggleFavriteFromChild(friendId){
+     const concernId = this.friends.find(friend=> friend.id===friendId);
+     concernId.favarite=!concernId.favarite;
+    }
+
+  }
 };
 </script>
 

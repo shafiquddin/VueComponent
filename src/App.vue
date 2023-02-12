@@ -5,16 +5,16 @@
     </header>
     <ul>
       <friend-contact
-      v-for="friend in friends"
-      :key="friend.id"
-      :id="friend.id"
-      :name="friend.name"
-      :email-address="friend.email"
-      :phone-number="friend.phone"
-      :isFavarite="friend.favarite"
-      @toggle-favarite="toggleFavriteFromChild"
+        v-for="friend in friends"
+        :key="friend.id"
+        :id="friend.id"
+        :name="friend.name"
+        :email-address="friend.email"
+        :phone-number="friend.phone"
+        :isFavarite="friend.favarite"
+        @favrite-toggle="toggleFromChild"
       >
-    </friend-contact>
+      </friend-contact>
     </ul>
   </section>
 </template>
@@ -29,25 +29,24 @@ export default {
           name: "Manuel Lorenz",
           phone: "0123 45678 90",
           email: "manuel@localhost.com",
-          favarite:true,
+          favarite: true,
         },
         {
           id: "julie",
           name: "Julie Jones",
           phone: "0987 654421 21",
           email: "julie@localhost.com",
-          favarite:false,
+          favarite: false,
         },
       ],
     };
   },
-  methods:{
-    toggleFavriteFromChild(friendId){
-     const concernId = this.friends.find(friend=> friend.id===friendId);
-     concernId.favarite=!concernId.favarite;
-    }
-
-  }
+  methods: {
+    toggleFromChild(friendId) {
+      const concernId = this.friends.find((friend) => friend.id === friendId);
+      concernId.favarite = !concernId.favarite;
+    },
+  },
 };
 </script>
 

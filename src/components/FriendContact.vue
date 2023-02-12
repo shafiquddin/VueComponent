@@ -20,7 +20,7 @@
 export default {
   props:{
     id:{
-      id:String,
+      type:String,
       required:true,
     },
     name:{
@@ -39,6 +39,9 @@ export default {
       type:Boolean,
       required:false,
       default:false,
+      // validator:function(value){
+      //   return  value==='0' | value==='1';
+      // }
     }
 
   }
@@ -53,7 +56,7 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
     isFavToggle(){
-      this.$emit('toggle-favarite',this.id)
+      this.$emit('favrite-toggle',this.id);
     }
   }
 };

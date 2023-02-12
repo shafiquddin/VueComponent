@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ name }} {{ favrite ? '(favrite)': '' }}</h2>
+    <h2>{{ name }} {{ isFavarite ? '(favrite)': '' }}</h2>
     <button @click="isFavToggle">Toggle favrite</button>
     <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'show' }} Details</button>
     <ul v-if="detailsAreVisible">
@@ -19,6 +19,10 @@
 <script>
 export default {
   props:{
+    id:{
+      id:String,
+      required:true,
+    },
     name:{
       type:String,
       required:true,
@@ -42,7 +46,6 @@ export default {
   data() {
     return {
       detailsAreVisible: false,
-      favrite:this.isFavarite,
     };
   },
   methods: {
@@ -50,7 +53,7 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
     isFavToggle(){
-      this.favrite=!this.favrite;
+      this.$emit('toggle-favarite',this.id)
     }
   }
 };

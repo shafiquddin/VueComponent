@@ -44,8 +44,18 @@ export default {
       // }
     }
 
-  }
-  ,
+  },
+  emit:['favrite-toggle'],
+  // emit:{
+  //   'favrite-toggle':function (id){
+  //     if(id){
+  //       return true;
+  //     }else{
+  //       console.warn('Id missing!');
+  //       return false;
+  //     }
+  //   }
+  // },
   data() {
     return {
       detailsAreVisible: false,

@@ -14,6 +14,7 @@
         :phone-number="friend.phone"
         :isFavarite="friend.favarite"
         @favrite-toggle="toggleFromChild"
+        @delete-friend="deleteFromchild"
       >
       </friend-contact>
     </ul>
@@ -56,6 +57,9 @@ export default {
       favarite:false,
     }
     this.friends.unshift(details);
+  },
+  deleteFromchild(friendId){
+    this.friends=this.friends.filter(friend=>friend.id !== friendId);
   }
   },
 };

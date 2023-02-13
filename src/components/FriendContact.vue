@@ -3,6 +3,7 @@
     <h2>{{ name }} {{ isFavarite ? '(favrite)': '' }}</h2>
     <button @click="isFavToggle">Toggle favrite</button>
     <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'show' }} Details</button>
+    <button @click="$emit('delete-friend',id)">Delete</button>
     <ul v-if="detailsAreVisible">
       <li>
         <strong>Phone:</strong>
@@ -45,7 +46,7 @@ export default {
     }
 
   },
-  emit:['favrite-toggle'],
+  emit:['favrite-toggle','delete-friend'],
   // emit:{
   //   'favrite-toggle':function (id){
   //     if(id){
